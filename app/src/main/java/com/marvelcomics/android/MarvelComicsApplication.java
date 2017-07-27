@@ -1,6 +1,7 @@
 package com.marvelcomics.android;
 
 import android.app.Application;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.marvelcomics.android.dagger.component.ApplicationComponent;
 import com.marvelcomics.android.dagger.component.DaggerApplicationComponent;
 import com.marvelcomics.android.dagger.module.ApplicationModule;
@@ -17,6 +18,7 @@ public class MarvelComicsApplication extends Application {
     super.onCreate();
     initComponent();
     mApplicationComponent.inject(this);
+    Fresco.initialize(this);
   }
 
   protected void initComponent() {

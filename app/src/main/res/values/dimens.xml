@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!-- Margin -->
+  <dimen name="generic_margin_large">20dp</dimen>
+
+  <!-- Text size -->
+  <dimen name="generic_text_size_medium">18sp</dimen>
+
+  <!-- Other -->
+  <dimen name="comic_image_width">100dp</dimen>
+  <dimen name="comic_image_height">120dp</dimen>
+
+</resources>

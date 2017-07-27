@@ -34,11 +34,14 @@ public class GetComicsInteractor {
   public void getComics(final DataListener<MainModel> dataListener) {
     comicsRepository.getComics(configureParams()).subscribe(new Consumer<ComicsResponse>() {
       @Override public void accept(@NonNull ComicsResponse comicsResponse) throws Exception {
+        Log.e("GetComicsInt", "accept");
         dataListener.onData(mainModelMapper.map(comicsResponse.getData().getResults()));
         dataListener.onSuccess();
       }
     }, new Consumer<Throwable>() {
       @Override public void accept(@NonNull Throwable throwable) throws Exception {
+        Log.e("GetComicsInt", "error");
+
         dataListener.onError("", ErrorType.GENERIC);
       }
     });

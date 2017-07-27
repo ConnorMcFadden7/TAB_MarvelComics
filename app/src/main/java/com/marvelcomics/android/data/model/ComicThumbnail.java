@@ -31,6 +31,10 @@ public class ComicThumbnail implements Serializable, Parcelable {
     this.extension = extension;
   }
 
+  public String getFullImagePath() {
+    return path + "." + extension;
+  }
+
   @Override public int describeContents() {
     return 0;
   }
