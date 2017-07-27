@@ -3,7 +3,11 @@ package com.marvelcomics.android.domain.interactor;
 import android.util.Log;
 import com.marvelcomics.android.data.api.ApiConfig;
 import com.marvelcomics.android.data.api.ComicsResponse;
+import com.marvelcomics.android.data.model.ErrorType;
+import com.marvelcomics.android.domain.DataListener;
 import com.marvelcomics.android.domain.repository.ComicsRepository;
+import com.marvelcomics.android.presentation.mapper.MainModelMapper;
+import com.marvelcomics.android.presentation.presenter.model.MainModel;
 import com.marvelcomics.android.util.Md5Utils;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
@@ -20,19 +24,22 @@ public class GetComicsInteractor {
   private static final int COMICS_REQ_LIMIT = 100;
 
   private final ComicsRepository comicsRepository;
+  private final MainModelMapper mainModelMapper;
 
-  @Inject GetComicsInteractor(ComicsRepository comicsRepository) {
+  @Inject GetComicsInteractor(ComicsRepository comicsRepository, MainModelMapper mainModelMapper) {
     this.comicsRepository = comicsRepository;
+    this.mainModelMapper = mainModelMapper;
   }
 
-  public void getComics() {
+  public void getComics(final DataListener<MainModel> dataListener) {
     comicsRepository.getComics(configureParams()).subscribe(new Consumer<ComicsResponse>() {
       @Override public void accept(@NonNull ComicsResponse comicsResponse) throws Exception {
-        Log.e("GetComitsInt", "count: " + comicsResponse.getData().getResults().size());
+        dataListener.onData(mainModelMapper.map(comicsResponse.getData().getResults()));
+        dataListener.onSuccess();
       }
     }, new Consumer<Throwable>() {
       @Override public void accept(@NonNull Throwable throwable) throws Exception {
-
+        dataListener.onError("", ErrorType.GENERIC);
       }
     });
   }

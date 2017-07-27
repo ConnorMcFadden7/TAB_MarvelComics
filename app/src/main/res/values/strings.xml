@@ -1,3 +1,8 @@
 <resources>
   <string name="app_name">MarvelComics</string>
+
+  <!-- Errors -->
+  <string name="errors_no_internet_connection_title">No internet connection</string>
+  <string name="errors_no_internet_connection_cta">Settings</string>
+  <string name="errors_no_internet_connection_message">Connection is required to continue, please check your settings.</string>
 </resources>
