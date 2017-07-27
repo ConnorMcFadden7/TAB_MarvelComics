@@ -1,6 +1,5 @@
 package com.marvelcomics.android.domain.interactor;
 
-import android.util.Log;
 import com.marvelcomics.android.data.api.ApiConfig;
 import com.marvelcomics.android.data.api.ComicsResponse;
 import com.marvelcomics.android.data.model.ErrorType;
@@ -34,14 +33,11 @@ public class GetComicsInteractor {
   public void getComics(final DataListener<MainModel> dataListener) {
     comicsRepository.getComics(configureParams()).subscribe(new Consumer<ComicsResponse>() {
       @Override public void accept(@NonNull ComicsResponse comicsResponse) throws Exception {
-        Log.e("GetComicsInt", "accept");
         dataListener.onData(mainModelMapper.map(comicsResponse.getData().getResults()));
         dataListener.onSuccess();
       }
     }, new Consumer<Throwable>() {
       @Override public void accept(@NonNull Throwable throwable) throws Exception {
-        Log.e("GetComicsInt", "error");
-
         dataListener.onError("", ErrorType.GENERIC);
       }
     });
@@ -49,19 +45,12 @@ public class GetComicsInteractor {
 
   private Map<String, Object> configureParams() {
     Map<String, Object> params = new HashMap<>();
-    //params.put("ts", 5);
-    //   params.put("apikey", ApiConfig.PUBLIC_KEY);
-    // params.put("hash", Md5Utils.toMd5(
-    //     String.valueOf(5) + ApiConfig.PRIVATE_KEY + ApiConfig.PUBLIC_KEY));
-
-    Log.e("GetComics",
-        "String.valueOf(System.currentTimeMillis()) + ApiConfig.PRIVATE_KEY + ApiConfig.PUBLIC_KEY: "
-            + String.valueOf(5)
-            + ApiConfig.PRIVATE_KEY
-            + ApiConfig.PUBLIC_KEY);
-    Log.e("GetComics",
-        "md5: " + Md5Utils.toMd5(String.valueOf(5) + ApiConfig.PRIVATE_KEY + ApiConfig.PUBLIC_KEY));
-    //  params.put("limit", COMICS_REQ_LIMIT);
+    params.put("ts", System.currentTimeMillis());
+    params.put("apikey", ApiConfig.PUBLIC_KEY);
+    String hash = Md5Utils.toMd5(
+        String.valueOf(System.currentTimeMillis()) + ApiConfig.PRIVATE_KEY + ApiConfig.PUBLIC_KEY);
+    params.put("hash", hash);
+    params.put("limit", COMICS_REQ_LIMIT);
     return params;
   }
 }

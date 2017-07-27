@@ -11,6 +11,6 @@ import retrofit2.http.QueryMap;
 
 public interface ApiComics {
 
-  @GET("v1/public/comics?ts=2&apikey=54306733de0f5cd1418aa05a85fa062a&hash=429a61f7f2f58f70f7d35cc5034a95dc&limit=100")
-  Observable<ComicsResponse> getComics(@QueryMap Map<String, Object> params);
+  @GET("v1/public/comics") Observable<ComicsResponse> getComics(
+      @QueryMap Map<String, Object> params);
 }
