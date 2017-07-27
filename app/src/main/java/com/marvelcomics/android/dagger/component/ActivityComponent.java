@@ -4,6 +4,7 @@ import android.app.Activity;
 import com.marvelcomics.android.MainActivity;
 import com.marvelcomics.android.dagger.module.ActivityModule;
 import com.marvelcomics.android.dagger.scope.ActivityScope;
+import com.marvelcomics.android.presentation.view.activity.BaseActivity;
 import dagger.Subcomponent;
 
 /**
@@ -14,4 +15,6 @@ import dagger.Subcomponent;
   Activity activity();
 
   void inject(MainActivity activity);
+
+  void inject(BaseActivity activity);
 }
