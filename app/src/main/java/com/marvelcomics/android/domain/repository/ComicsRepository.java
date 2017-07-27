@@ -16,7 +16,7 @@ public class ComicsRepository {
 
   private final ApiComics apiComics;
 
-  @Inject ComicsRepository(ApiComics apiComics) {
+  @Inject public ComicsRepository(ApiComics apiComics) {
     this.apiComics = apiComics;
   }
 

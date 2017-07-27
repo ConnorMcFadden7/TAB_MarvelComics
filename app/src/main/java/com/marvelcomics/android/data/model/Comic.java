@@ -50,6 +50,10 @@ public class Comic implements Serializable, Parcelable {
     dest.writeParcelable(this.thumbnail, flags);
   }
 
+  public Comic() {
+    //
+  }
+
   protected Comic(Parcel in) {
     this.id = in.readInt();
     this.title = in.readString();

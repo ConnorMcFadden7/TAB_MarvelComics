@@ -91,6 +91,10 @@ public class ComicsResponse implements Serializable, Parcelable {
     dest.writeParcelable(this.data, flags);
   }
 
+  public ComicsResponse() {
+    //
+  }
+
   protected ComicsResponse(Parcel in) {
     this.code = in.readInt();
     this.status = in.readString();

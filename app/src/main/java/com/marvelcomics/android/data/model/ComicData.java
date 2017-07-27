@@ -71,6 +71,10 @@ public class ComicData implements Serializable, Parcelable {
     dest.writeTypedList(this.results);
   }
 
+  public ComicData() {
+    //
+  }
+
   protected ComicData(Parcel in) {
     this.offset = in.readInt();
     this.limit = in.readInt();
