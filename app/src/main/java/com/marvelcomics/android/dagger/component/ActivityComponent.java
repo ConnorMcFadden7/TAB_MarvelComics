@@ -1,10 +1,10 @@
 package com.marvelcomics.android.dagger.component;
 
 import android.app.Activity;
-import com.marvelcomics.android.MainActivity;
 import com.marvelcomics.android.dagger.module.ActivityModule;
 import com.marvelcomics.android.dagger.scope.ActivityScope;
 import com.marvelcomics.android.presentation.view.activity.BaseActivity;
+import com.marvelcomics.android.presentation.view.activity.MainActivity;
 import dagger.Subcomponent;
 
 /**

@@ -58,8 +58,9 @@ dependencies {
   provided "com.google.auto.factory:auto-factory:1.0-beta3"
   apt "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
 
-  /** RETROFIT **/
+  /** NETWORK **/
   compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
   compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
   compile "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
+  compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
 }
