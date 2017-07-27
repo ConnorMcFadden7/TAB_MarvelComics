@@ -1,5 +1,6 @@
 package com.marvelcomics.android.presentation.view.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -14,10 +15,11 @@ import javax.inject.Inject;
 
 public class ComicAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+  private final Context mContext;
   private List<Comic> mComics;
 
-  @Inject ComicAdapter() {
-    //
+  @Inject ComicAdapter(Context context) {
+    mContext = context;
   }
 
   public void setData(List<Comic> comics) {
@@ -26,7 +28,8 @@ public class ComicAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
   @Override public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
     return new ComicViewHolder(
-        LayoutInflater.from(parent.getContext()).inflate(R.layout.item_comic, parent, false));
+        LayoutInflater.from(parent.getContext()).inflate(R.layout.item_comic, parent, false),
+        mContext);
   }
 
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {

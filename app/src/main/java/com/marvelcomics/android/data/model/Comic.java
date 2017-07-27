@@ -3,6 +3,7 @@ package com.marvelcomics.android.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by connormcfadden on 27/07/2017.
@@ -14,6 +15,10 @@ public class Comic implements Serializable, Parcelable {
 
   private int id;
   private String title;
+  private String description;
+  private int pageCount;
+  private List<Price> prices;
+  private Creators creators;
   private ComicThumbnail thumbnail;
 
   public int getId() {
@@ -32,6 +37,38 @@ public class Comic implements Serializable, Parcelable {
     this.title = title;
   }
 
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public int getPageCount() {
+    return pageCount;
+  }
+
+  public void setPageCount(int pageCount) {
+    this.pageCount = pageCount;
+  }
+
+  public List<Price> getPrices() {
+    return prices;
+  }
+
+  public void setPrices(List<Price> prices) {
+    this.prices = prices;
+  }
+
+  public Creators getCreators() {
+    return creators;
+  }
+
+  public void setCreators(Creators creators) {
+    this.creators = creators;
+  }
+
   public ComicThumbnail getThumbnail() {
     return thumbnail;
   }
@@ -45,8 +82,12 @@ public class Comic implements Serializable, Parcelable {
   }
 
   @Override public void writeToParcel(Parcel dest, int flags) {
-    dest.writeValue(this.id);
-    dest.writeValue(this.title);
+    dest.writeInt(this.id);
+    dest.writeString(this.title);
+    dest.writeString(this.description);
+    dest.writeInt(this.pageCount);
+    dest.writeTypedList(this.prices);
+    dest.writeParcelable(this.creators, flags);
     dest.writeParcelable(this.thumbnail, flags);
   }
 
@@ -57,6 +98,9 @@ public class Comic implements Serializable, Parcelable {
   protected Comic(Parcel in) {
     this.id = in.readInt();
     this.title = in.readString();
+    this.description = in.readString();
+    this.prices = in.createTypedArrayList(Price.CREATOR);
+    this.creators = in.readParcelable(Creators.class.getClassLoader());
     this.thumbnail = in.readParcelable(ComicThumbnail.class.getClassLoader());
   }
 

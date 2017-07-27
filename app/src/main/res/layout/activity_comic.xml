@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container_comic"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/generic_text_size_medium"
+    android:orientation="vertical"
+    >
+
+  <TextView
+      android:id="@+id/tv_title_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/comic_screen_title"
+      android:textStyle="bold"
+      />
+
+  <TextView
+      android:id="@+id/tv_title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/generic_margin_small"
+      android:text="@string/comic_screen_na"
+      />
+
+  <TextView
+      android:id="@+id/tv_description_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/comic_screen_description"
+      android:textStyle="bold"
+      />
+
+  <TextView
+      android:id="@+id/tv_description"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/generic_margin_small"
+      android:text="@string/comic_screen_na"
+      />
+
+  <TextView
+      android:id="@+id/tv_pagecount_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/comic_screen_page_count"
+      android:textStyle="bold"
+      />
+
+  <TextView
+      android:id="@+id/tv_pagecount"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/generic_margin_small"
+      android:text="@string/comic_screen_na"
+      />
+
+  <TextView
+      android:id="@+id/tv_price_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/comic_screen_price"
+      android:textStyle="bold"
+      />
+
+  <TextView
+      android:id="@+id/tv_price"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/generic_margin_small"
+      android:text="@string/comic_screen_na"
+      />
+
+  <TextView
+      android:id="@+id/tv_authors_label"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/comic_screen_authors"
+      android:textStyle="bold"
+      />
+
+  <TextView
+      android:id="@+id/tv_authors"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/generic_margin_small"
+      android:text="@string/comic_screen_na"
+      />
+
+</LinearLayout>

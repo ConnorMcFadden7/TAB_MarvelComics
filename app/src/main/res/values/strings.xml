@@ -1,8 +1,17 @@
 <resources>
   <string name="app_name">MarvelComics</string>
 
+  <!-- Comic screen -->
+  <string name="comic_screen_title">Title</string>
+  <string name="comic_screen_description">Description</string>
+  <string name="comic_screen_page_count">Page count</string>
+  <string name="comic_screen_price">Price</string>
+  <string name="comic_screen_authors">Authors</string>
+  <string name="comic_screen_na">N/A</string>
+
   <!-- Errors -->
   <string name="errors_no_internet_connection_title">No internet connection</string>
   <string name="errors_no_internet_connection_cta">Settings</string>
   <string name="errors_no_internet_connection_message">Connection is required to continue, please check your settings.</string>
+
 </resources>

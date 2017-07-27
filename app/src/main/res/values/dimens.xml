@@ -2,6 +2,7 @@
 <resources>
 
   <!-- Margin -->
+  <dimen name="generic_margin_small">6dp</dimen>
   <dimen name="generic_margin_large">20dp</dimen>
 
   <!-- Text size -->
