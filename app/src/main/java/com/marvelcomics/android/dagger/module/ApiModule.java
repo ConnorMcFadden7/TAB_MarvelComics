@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.marvelcomics.android.dagger.named.ApiClient;
 import com.marvelcomics.android.data.api.ApiComics;
+import com.marvelcomics.android.data.api.ApiConfig;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -21,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
   @Provides Retrofit.Builder provideRestAdapterBuilderVersionOnePointOne(
       @ApiClient OkHttpClient okHttpClient, GsonConverterFactory gsonConverterFactory) {
-    return new Retrofit.Builder().baseUrl("http://gateway.marvel.com/")
+    return new Retrofit.Builder().baseUrl(ApiConfig.BASE_URL)
         .addConverterFactory(gsonConverterFactory)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .client(okHttpClient);

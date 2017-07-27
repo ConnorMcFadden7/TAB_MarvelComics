@@ -1,9 +1,11 @@
 package com.marvelcomics.android.domain.repository;
 
 import com.marvelcomics.android.data.api.ApiComics;
+import com.marvelcomics.android.data.api.ComicsResponse;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
+import java.util.Map;
 import javax.inject.Inject;
 
 /**
@@ -18,8 +20,8 @@ public class ComicsRepository {
     this.apiComics = apiComics;
   }
 
-  public Observable<Object> getComics() {
-    return apiComics.getComics()
+  public Observable<ComicsResponse> getComics(Map<String, Object> params) {
+    return apiComics.getComics(params)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread());
   }
